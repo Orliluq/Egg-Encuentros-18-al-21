@@ -1,0 +1,38 @@
+/// Realizar un programa que lea 10 números reales por teclado, los almacene en un arreglo y
+/// muestre por pantalla la suma, resta y multiplicación de todos los números ingresados al
+/// arreglo.
+
+Algoritmo guia5_ejercicio2
+	
+	Definir valores, i, suma, resta, multi, div Como Real	
+	Dimension valores(10)
+	
+	suma = 0;
+	resta = 0;
+	multi = 0;
+	div = 0;
+	
+	Para i = 0  Hasta 9 Hacer
+		Escribir "Ingrese los números reales para iniciar el arreglo: ", i;
+		Leer valores(i);
+	FinPara
+	
+	Para i = 0 Hasta 9 Hacer
+		suma = suma + valores(i);
+		Si i = 0 Entonces
+			resta = valores(i);
+			multi = valores(i);
+			div = valores(i);
+		SiNo
+			resta = abs(resta - valores(i));
+			multi = multi * valores(i);
+			div = div / valores(i);	
+		FinSi
+	FinPara
+	
+	Escribir  "La suma de los números ingresados es: " , suma;  
+	Escribir  "La resta de los números ingresados es: " , resta;  
+	Escribir  "La multiplicación de los números ingresados es: " , multi;
+	Escribir  "La división de los números ingresados es: " , div;
+	
+FinAlgoritmo
