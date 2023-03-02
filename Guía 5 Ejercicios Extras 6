@@ -1,0 +1,25 @@
+/// Crear una función que devuelva la diferencia que hay entre el valor más chico de un arreglo y 
+/// su valor más grande
+
+Funcion calcular(vector1) 
+	Definir i, mayor, menor como Entero
+	mayor  = 0
+	menor = 3000
+	Para i = 0 Hasta 9 Hacer
+		vector1[i] = Aleatorio(1,10000)
+		Si vector1[i] > mayor Entonces
+			mayor = vector1[i]
+		SiNo
+			menor = vector1[i]
+		FinSi
+	FinPara
+	Escribir mayor, " - ", menor
+	Escribir "La diferencia es :" mayor - menor
+FinFuncion
+
+
+Algoritmo guiaextra5ejercicio6
+	Definir vector1, i Como Entero
+	Dimension vector1[10]
+	calcular(vector1)
+FinAlgoritmo
