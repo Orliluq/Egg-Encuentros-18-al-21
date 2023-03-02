@@ -1,0 +1,22 @@
+// Realizar un programa que rellene dos vectores al mismo tiempo, con 5 valores aleatorios y los 
+/// muestre por pantalla.
+
+Algoritmo guiaextra5ejercicio1
+	Definir vectorA, vectorB, i Como Entero
+	Dimension vectorA[5];
+	Dimension vectorB[5];
+	
+	Para i = 0 Hasta 4 Con Paso 1 Hacer
+		vectorA[i] = Aleatorio(-100,100)
+		Escribir vectorA[i]  "," Sin Saltar 
+	FinPara
+	
+	Escribir ""
+	Para i = 0 Hasta 4 Con Paso 1 Hacer
+		vectorB[i] = Aleatorio(-100,100)
+		Escribir vectorB[i]  "," Sin Saltar 
+	FinPara
+	
+	Escribir ""
+	
+FinAlgoritmo
