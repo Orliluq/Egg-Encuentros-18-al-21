@@ -1,0 +1,35 @@
+/// Realizar un programa que rellene un vector de tamaño N, con valores ingresados por el
+/// usuario. A continuación, se deberá crear una función que reciba el vector y devuelva el valor
+/// más grande del vector.
+
+Funcion calcular(vector, num) 
+	
+	Definir i, mayor Como Entero
+	mayor = 0
+	
+	Para i = 0 Hasta num -1  Hacer
+		Si vector(i) > mayor  Entonces
+			mayor = vector(i)
+		FinSi
+	FinPara
+	
+	Escribir "El número mayor es: ", mayor;
+	
+FinFuncion
+
+Algoritmo guia5ejercicio5
+	
+	Definir valores, num, i Como Entero
+	
+	Escribir "Ingrese el número tendrá el arreglo: ";
+	Leer num;
+	
+	Dimension valores(num)
+	
+	Para i = 0 Hasta num -1 Hacer
+		Escribir "Ingrese el valor de la posición en el arreglo: ", i;
+		Leer valores(i);
+	FinPara
+	calcular(valores, num);
+	
+FinAlgoritmo
