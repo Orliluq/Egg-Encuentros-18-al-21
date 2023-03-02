@@ -1,0 +1,22 @@
+/// Realizar un programa que rellene un vector con 5 valores ingresados por el usuario y los
+/// muestre por pantalla.
+
+Algoritmo guia5_ejercicio1
+	
+	Definir valores, i Como Entero
+	Dimension valores(5)
+	
+	Para i = 0  Hasta 4 Hacer
+		Escribir "Ingrese un número: ", i;
+		Leer valores(i);
+	FinPara
+	
+	Para i = 0 Hasta 4 Hacer
+		Si i == 4 Entonces
+			Escribir valores(i);
+		SiNo
+			Escribir valores(i) "," Sin Saltar;
+		FinSi
+	FinPara
+	
+FinAlgoritmo
