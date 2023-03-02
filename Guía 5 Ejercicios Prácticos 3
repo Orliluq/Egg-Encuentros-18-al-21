@@ -1,0 +1,47 @@
+/// Realizar un programa que rellene un vector de tamaño N, con valores ingresados por el
+/// usuario. A continuación, se debe buscar un elemento dentro del arreglo (el número a buscar
+/// también debe ser ingresado por el usuario). El programa debe indicar la posición donde se
+/// encuentra el valor. En caso que el número se encuentre repetido dentro del arreglo se deben
+/// imprimir todas las posiciones donde se encuentra ese valor.
+/// Finalmente, en caso que el número a buscar no está adentro del arreglo se debe mostrar un
+/// mensaje.
+
+Algoritmo guia5_ejercicio3
+	
+	Definir contador, j, numArr, valores, num Como Entero
+	Definir i Como Logico
+	
+	i = Verdadero
+	j = 0
+	
+	Escribir "Ingrese un número para definir el tamaño del arreglo: ";
+	Leer numArr;
+	Dimension valores(numArr);
+	
+	Para contador = 0  Hasta numArr - 1 Hacer
+		Escribir "Ingrese un valor: ", contador;
+		Leer valores(contador);
+	FinPara
+	
+	Mientras i Hacer
+		Escribir "Buscar número dentro del arreglo.";
+		Leer num;
+		
+		Para contador = 0 Hasta numArr -1 Hacer
+			Si num == valores(contador) Entonces
+				i = Falso
+				Escribir "Se encontró el número en la posición: " , contador; 
+				j = j + 1
+			FinSi
+		FinPara
+		
+		Si !i Entonces
+			Escribir "El número se repite: " , j " veces";
+		FinSi
+		
+		Si j = 0 Entonces
+			Escribir "No se encontró el número que ingresó.";
+		FinSi
+	FinMientras
+	
+FinAlgoritmo
