@@ -1,0 +1,131 @@
+/// Tomando en cuenta el ejercicio 6, mejore el mecanismo de inserción del carácter, facilitando
+/// un potencial reordenamiento del vector. Digamos que se pide ingresar el carácter en la
+/// posición X y la misma está ocupada, entonces de existir un espacio en cualquier posición X-n
+/// o X+n, desplazar los caracteres hacia la izq o hacia la derecha para poder ingresar el carácter
+///	en cuestión en el lugar deseado. El procedimiento de reordenamiento debe ubicar el espacio
+///	más cercano.
+/// Por ejemplo, suponiendo la siguiente frase y los subíndices del vector:
+///	H o l a   m u n d o     c r u e l !
+///	0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+///	
+///	Si se desea ingresar el carácter "%" en la posición 8, entonces el resultado con desplaza-
+///	miento sería:
+///		
+///	h o l a    m u n % d o     c r u e l !
+///	0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+///	
+///	Notar que el desplazamiento se hizo hacia la izquierda porque el espacio de la posición 10 es-
+///	taba más cerca de la posición 8 que el espacio de la posición 4. Nota: en caso del que el des-
+///	plazamiento sea a la izquierda y se requiera que se remueva la letra, se hará. Por ejemplo,
+///	
+///	para poner un "%" en la posición 6, haríamos un desplazamiento a la izquierda y borraríamos
+/// la letra h
+
+/// Disponemos de un vector unidimensional de 20 elementos de tipo carácter. Se pide
+/// desarrollar un programa que:
+///	a) Pida una frase al usuario y luego ingrese la frase dentro del arreglo letra por letra.
+/// Ayuda: utilizar la función Subcadena de PSeInt.
+///	b) Una vez completado lo anterior, pedirle al usuario un carácter cualquiera y una
+///	posición dentro del arreglo, y el programa debe intentar ingresar el carácter en la
+///	posición indicada, si es que hay lugar (es decir la posición está vacía o es un espacio
+///	en blanco). De ser posible debe mostrar el vector con la frase y el carácter ingresado,
+///	de lo contrario debe darle un mensaje al usuario de que esa posición estaba ocupada.
+
+
+Algoritmo ejer5extras
+	Definir letra, frase, vector Como Caracter
+	Definir i, pos, sup, inf, d1, d2 como Entero
+	Dimension vector(20)
+	i = 0
+	Para i = 0 Hasta 20 - 1 Con Paso 1 Hacer
+		vector(i) = " "
+	Fin Para
+	
+	Escribir "Ingrese una frase no mayor de 20 caracteres:"
+	Leer frase
+	
+	Para i = 0 Hasta Longitud(frase) + 1 Con Paso 1 Hacer
+		vector(i) = Subcadena(frase,i,i)
+		
+	Fin Para
+	
+	Escribir "Ingrese una letra:"
+	Leer letra
+	Escribir "Ingrese un número para la posición, para ingresar la letra:"
+	Leer pos
+	
+	
+	
+	
+	Si vector(pos) = "" O vector(pos) = " " Entonces
+		vector(pos) = letra
+		Escribir "El nuevo vector es ", vector(i) Sin Saltar
+		Escribir ""
+	SiNo
+		inf = 0
+		sup = 0
+		Para i = 0 Hasta Longitud(frase) + 1 Con Paso 1 Hacer
+			Si vector(i) = " " Entonces
+				
+				// Escribir i
+				Si i > pos Entonces
+					
+					sup = i
+					
+				Fin Si
+				Si i < pos Entonces
+					
+					inf = i
+					
+				Fin Si
+			Fin Si
+			
+		Fin Para
+		Escribir sup
+		Escribir inf
+		d1 = sup - pos
+		d2 = pos - inf
+		Escribir d1
+		Escribir d2
+		
+		Si d1 < d2 Entonces
+			
+			Para i = 0 Hasta Longitud(frase) + 1 Con Paso 1 Hacer
+				Si i < pos Entonces
+					vector(i) = Subcadena(frase,i,i)
+				SiNo
+					Si i = pos Entonces
+						vector(i) = letra
+					SiNo
+						Si i > pos Entonces
+							vector(i) = Subcadena(frase,i-1,i-1)
+						Fin Si
+					Fin Si
+				Fin Si
+			Fin Para
+			
+		SiNo
+			
+			Para i = 0 Hasta Longitud(frase) + 1 Con Paso 1 Hacer
+				Si i < pos Entonces
+					vector(i) = Subcadena(frase, i + 1, i + 1)
+				SiNo
+					Si i = pos Entonces
+						vector(i) = letra
+					SiNo
+						Si i > pos Entonces
+							vector(i) = Subcadena(frase,i,i)
+						Fin Si
+					Fin Si
+				Fin Si
+			Fin Para
+			
+		Fin Si
+	Fin Si
+	
+	Para i = 0 Hasta 19 Con Paso 1 Hacer
+		Escribir Sin Saltar vector(i) 
+		
+	Fin Para
+	Escribir "  "
+FinAlgoritmo
