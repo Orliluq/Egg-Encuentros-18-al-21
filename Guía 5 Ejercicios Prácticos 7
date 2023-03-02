@@ -1,0 +1,55 @@
+/// Crear un subproceso que rellene dos arreglos de tamaño n, con números aleatorios. Después,
+/// hacer una función que reciba los dos arreglos y diga si todos sus valores son iguales o no. La
+/// función debe devolver el resultado de está validación, para mostrar el mensaje en el
+/// algoritmo. Nota: recordar el uso de las variables de tipo lógico.
+
+SubProceso arreglos(vectorA Por Referencia, vectorB Por Referencia)
+	Definir i Como Entero	
+	
+	Para i = 0 Hasta 2 Con Paso 1 Hacer
+		vectorA(i) = Aleatorio(-100,100)		
+		Escribir Sin Saltar vectorA(i)," "					
+	Fin Para	
+	Escribir ""
+	
+	Para i = 0 Hasta 2 Con Paso 1 Hacer		
+		vectorB(i) = Aleatorio(-100,100)		
+		Escribir Sin Saltar vectorB(i)," "
+	Fin Para	
+	
+FinSubProceso
+
+Funcion retorno = contador(vectorA Por Referencia, vectorB Por Referencia)
+	Definir retorno Como Logico
+	Definir suma, i Como Entero
+	suma = 0
+	
+	Para i = 0 Hasta 2 Con Paso 1 Hacer
+		Si vectorA(i) <> vectorB(i) Entonces
+			suma = suma + 1		
+		Fin Si
+	Fin Para
+	
+	Si suma == 0 Entonces
+		retorno = Verdadero
+	SiNo
+		retorno  = Falso
+	Fin Si	
+Fin Funcion
+
+Algoritmo guia5ejercicio7
+	
+	Definir vectorA, vectorB Como Entero
+	Definir resultado como Logico
+	Dimension vectorA(3)
+	Dimension vectorB(3)
+	
+	Escribir "Se llenan los siguientes arreglos: ";
+	arreglos(vectorA, vectorB);
+	
+	resultado = contador(vectorA,vectorB);
+	
+	Escribir "";
+	Escribir "Los arreglos son iguales: ", resultado;
+	
+FinAlgoritmo
