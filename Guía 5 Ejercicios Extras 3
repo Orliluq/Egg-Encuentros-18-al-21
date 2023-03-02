@@ -1,0 +1,33 @@
+/// Crear dos vectores que tengan el mismo tamaño (el tamaño se pedirá por teclado) y 
+/// almacenar en uno de ellos nombres de personas como cadenas. En el segundo vector se 
+/// debe almacenar la longitud de cada uno de los nombres (para ello puedes usar la función 
+/// Longitud() de PseInt). Mostrar por pantalla cada uno de los nombres junto con su longitud.
+	
+Algoritmo guiaextra5ejercicio3
+		
+	Definir long, n, i Como Entero
+	Definir nombre Como Caracter
+		
+	//Definimos el tamaño del array por teclado 
+	Escribir "Ingrese el tamaño del arreglo:"
+	Leer n  
+		
+	//Definimos el array    
+	Dimension long[n]
+	Dimension nombre[n]
+	
+	//Introducimos los nombres y la longitud de los mismos
+	Para i = 0 Hasta n-1 Con Paso 1 Hacer
+		Escribir "Ingrese un nombre para la posición: ";      
+		Leer nombre[i]
+	Fin Para    
+	
+	Para i = 0 Hasta n-1 Con Paso 1 Hacer
+		long[i] = Longitud(nombre[i])
+	Fin Para
+	
+	Para i = 0 Hasta n-1 Con Paso 1 Hacer
+		Escribir "El nombre ", nombre[i], " tiene longitud ", long[i] 
+	Fin Para
+	
+FinAlgoritmo
